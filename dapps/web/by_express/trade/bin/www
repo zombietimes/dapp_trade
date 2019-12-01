@@ -1,0 +1,11 @@
+#!/usr/bin/nodejs
+var debug = require('debug')('my-application');
+var app = require('../app');
+
+require('/home/zombie/dapps/web/by_express/trade/public/javascripts/toAbiJson_trade.js');
+
+app.set('port', process.env.PORT || 3000);
+var server = app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + server.address().port);
+  console.log("Browser : http://127.0.0.1:" + server.address().port);
+});

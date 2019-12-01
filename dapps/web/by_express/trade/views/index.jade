@@ -1,0 +1,73 @@
+extends layout
+
+block content
+  h1= title
+  button(type='button' id='iRefresh') Refresh All
+  br
+  br
+
+  h2 My Currency
+  button(type='button' id='iCreateWalletCurrency') 1. Create Wallet *
+  br
+  //- button(type='button' id='iGetCurrencyBalance') Refresh
+  //- br
+  p USD Balance :
+    span(id='iCurrencyBalanceUSD') 0
+  p EUR Balance :
+    span(id='iCurrencyBalanceEUR') 0
+  br
+
+  h2 Sell Order List
+  textarea(readonly id='iSellOrderList' cols='30' rows='5')
+  br
+  //- button(type='button' id='iShowSellOrder') Refresh
+  //- br
+
+  h2 Buy Order List
+  textarea(readonly id='iBuyOrderList' cols='30' rows='5')
+  br
+  //- button(type='button' id='iShowBuyOrder') Refresh
+  //- br
+  br
+
+  h2 Order
+  form(id='iOrderPatterns')
+    input(id='iTab101' type='radio' name='nTab' value='vTag101')
+    label(id='iTab101L' class='cTab' for='iTab101') price:10 amount:1
+    input(id='iTab111' type='radio' name='nTab' value='vTag111')
+    label(id='iTab111L' class='cTab' for='iTab111') price:11 amount:1
+    br
+    input(id='iTab102' type='radio' name='nTab' value='vTag102')
+    label(id='iTab102L' class='cTab' for='iTab102') price:10 amount:2
+    input(id='iTab112' type='radio' name='nTab' value='vTag112')
+    label(id='iTab112L' class='cTab' for='iTab112') price:11 amount:2
+    br
+    input(id='iTab103' type='radio' name='nTab' value='vTag103')
+    label(id='iTab103L' class='cTab' for='iTab103') price:10 amount:3
+    input(id='iTab113' type='radio' name='nTab' value='vTag113')
+    label(id='iTab113L' class='cTab' for='iTab113') price:11 amount:3
+    br
+  br
+  button(type='button' id='iSellOrder') 2. Sell *
+  button(type='button' id='iBuyOrder') 3. Buy *
+  br
+  br
+
+  h2 Agreement List
+  button(type='button' id='iDoAgreement') 4. Agreement *
+  br
+  textarea(readonly id='iAgreementList' cols='30' rows='5')
+  br
+  //- button(type='button' id='iShowAgreement') Refresh
+  //- br
+  br
+  hr
+  p The dapp Trade allows you to simulate market transactions on the ethereum blockchain.
+  p It is useful for you to develop a new system.
+
+  script(type='text/javascript',src='https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js')
+  script(type='text/javascript',src='https://cdn.jsdelivr.net/npm/loom-js@1.15.0/dist/loom.umd.js')
+  script(type='text/javascript',src='/javascripts/abiJson_trade.js')
+  script(type='text/javascript',src='/javascripts/config.js')
+  script(type='text/javascript',src='/javascripts/accessor.js')
+  script(type='text/javascript',src='/javascripts/run_trade.js')
